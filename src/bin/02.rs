@@ -10,7 +10,7 @@ pub fn part_one(input: &str) -> Option<u64> {
         for number in start..=end {
             let number_str = number.to_string();
             let n = number_str.len();
-            if n % 2 == 0 && &number_str[0..n / 2] == &number_str[n / 2..] {
+            if n % 2 == 0 && number_str[0..n / 2] == number_str[n / 2..] {
                 ans += number;
             }
         }
