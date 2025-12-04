@@ -28,8 +28,8 @@ pub fn part_two(input: &str) -> Option<u64> {
         let mut max_sum = 0;
         let mut start = 0usize;
         let mut cnt = 0;
-        while cnt < length && start + length - cnt < n {
-            let end = n - length + cnt;
+        let mut end = n - length + cnt;
+        while cnt < length && end >= start {
             let (idx, max_val) =
                 numbers[start..=end]
                     .iter()
@@ -41,12 +41,7 @@ pub fn part_two(input: &str) -> Option<u64> {
 
             start += idx + 1;
             cnt += 1;
-        }
-
-        if cnt < length {
-            for &val in &numbers[start..] {
-                max_sum = max_sum * 10 + (val - b'0') as u64;
-            }
+            end = n - length + cnt;
         }
 
         ans += max_sum;
