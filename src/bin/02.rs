@@ -53,6 +53,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "private"]
     fn test_part_one_inputs() {
         let result = part_one(&advent_of_code::template::read_file("inputs", DAY));
         assert_eq!(result, Some(20223751480));
@@ -65,6 +66,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "private"]
     fn test_part_two_inputs() {
         let result = part_two(&advent_of_code::template::read_file("inputs", DAY));
         assert_eq!(result, Some(30260171216));
