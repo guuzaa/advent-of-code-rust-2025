@@ -107,7 +107,7 @@ pub fn part_one(input: &str) -> Option<u64> {
             distances.push((points[i].distance(&points[j]), i, j));
         }
     }
-    distances.sort_by(|a, b| a.0.partial_cmp(&b.0).unwrap_or(std::cmp::Ordering::Greater));
+    distances.sort_unstable_by(|a, b| a.0.partial_cmp(&b.0).unwrap_or(std::cmp::Ordering::Greater));
     let mut uf = UnionFind::new(n);
     for dis in distances.iter().take(n) {
         uf.union(dis.1, dis.2);
@@ -125,7 +125,7 @@ pub fn part_two(input: &str) -> Option<u64> {
             distances.push((points[i].distance(&points[j]), i, j));
         }
     }
-    distances.sort_by(|a, b| a.0.partial_cmp(&b.0).unwrap_or(std::cmp::Ordering::Greater));
+    distances.sort_unstable_by(|a, b| a.0.partial_cmp(&b.0).unwrap_or(std::cmp::Ordering::Greater));
     let mut uf = UnionFind::new(n);
     for dis in &distances {
         let p = uf.union(dis.1, dis.2);
